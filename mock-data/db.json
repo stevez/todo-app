@@ -1,0 +1,20 @@
+{
+    "tasks": [
+      {
+        "id": "4e5e6ca4-74e3-4b0b-afdb-b88cafe41e5b",
+        "text": "HackerRank Problem solving part 1"
+      },
+      {
+        "id": "d3493707-26ac-4b84-9333-ee645215c784",
+        "text": "Join the progress review meeting at 9pm"
+      },
+      {
+        "id": "6a44458b-67c3-47a7-9ef0-317998a60d0e",
+        "text": "write an article about the \"Create Todo App Using Next JS\""
+      },
+      {
+        "id": "fe3eefca-90d1-4285-80d6-4d698f9f4660",
+        "text": "create the Monthly presentation"
+      }
+    ]
+}
