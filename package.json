@@ -10,7 +10,7 @@
     "start:local": "cross-env NODE_OPTIONS=--inspect=9230 next start",
     "start:integration": "concurrently \"npm run start:local\" \"npm run mock\"",
     "playwright-test": "playwright test",
-    "integration-test": "start-server-and-test 'npm run start:integraton' http-get://localhost:3000 'npm run playwright-test'",
+    "integration-test": "start-server-and-test 'npm run start:integration' http-get://localhost:3000 'npm run playwright-test'",
     "lint": "next lint",
     "mock": "nodemon --watch mock-data mock-data/server.js",
     "lcov": "open coverage/lcov-report/index.html"
