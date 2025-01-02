@@ -40,8 +40,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 check the github actions script for details: [playwright.yml](.github/workflows/playwright.yml)  
 
 ## How to collect the test coverage
-The current solution is throught Istanbul. For details please refer repo [nextjs-with-playwright-istanbul](https://github.com/cenfun/nextjs-with-playwright-istanbul)
+The current solution is throught Istanbul. For details please refer repo [nextjs-with-playwright-istanbul](https://github.com/cenfun/nextjs-with-playwright-istanbul).
+
 **Note**: The author mentioned that "The latest version of Next.js does not work with Babel + Istanbul", but I got it working in this repo with Next 15.1.3.
 
 ## Other issues
-In oder to use babel + istanbul coverage, swc has to be disabled, which cause  **next/font** library is not supported.
+In oder to use babel + istanbul coverage, swc has to be disabled, which cause  the **next/font** library is not supported.
