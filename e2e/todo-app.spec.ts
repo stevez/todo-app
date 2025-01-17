@@ -7,9 +7,13 @@ import {
 } from "./mock-server-api";
 
 test.describe("ToDo App", () => {
-    test.beforeEach(async ({ request }) => {
-        await resetOverrideResponse(request);
-        await resetDB(request);
+    test.beforeEach(async ({ page, request }, testInfo) => {
+        const customHeaders = {
+            "x-parallel-index": testInfo.parallelIndex.toString(),
+        };
+        await page.setExtraHTTPHeaders(customHeaders);
+        await resetOverrideResponse(request, customHeaders);
+        await resetDB(request, customHeaders);
     });
 
     test("Add new Task", async ({ page }) => {
@@ -41,7 +45,10 @@ test.describe("ToDo App", () => {
         await expect(page.getByText("buy iPhone")).toBeVisible();
     });
 
-    test("list when empty tasks", async ({ page, request }) => {
+    test("list when empty tasks", async ({ page, request}, testInfo) => {
+        const customHeaders = {
+            "x-parallel-index": testInfo.parallelIndex.toString(),
+        };
         await overrideResponse(request, {
             method: "GET",
             url: "/tasks",
@@ -49,7 +56,7 @@ test.describe("ToDo App", () => {
                 status: 200,
                 body: [],
             },
-        });
+        }, customHeaders);
 
         await page.goto("/");
         await expect(

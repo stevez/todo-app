@@ -59,7 +59,7 @@ export default defineConfig({
 
   /* Opt out of parallel tests on CI. */
 
-  workers: process.env.CI ? 1 : 1,
+  workers: process.env.CI ? 1 : undefined,
 
   globalTeardown: "./global-teardown.js",
 
