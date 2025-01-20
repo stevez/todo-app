@@ -1,6 +1,6 @@
 const jsonServer = require('json-server');
 const initialData = require('./db.json');
-const { overrideRouter, responseOverrideMiddleware } = require('./endpoint-response-override');
+const { overrideRouter, responseOverrideMiddleware } = require('endpoint-response-override');
 
 const server = jsonServer.create();
 
