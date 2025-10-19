@@ -32,17 +32,24 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 -  run local build: ```npm run build:local```
 -  start the mock server and local next server: ```npm run start:integration```
 -  run playwright tests: ```npm run playwright-test```
--  view the covefrage report: ```npm run lcov```
+-  view the playwright coverage report: ```npm run lcov:integration```
   
 ## Run playwright tests in CI
 -  run local build: ```npm run build:local```
 -  start the integration tests: ```npm run integration-test```
-check the github actions script for details: [playwright.yml](.github/workflows/playwright.yml)  
+check the github actions script for details: [ci.yml](.github/workflows/ci.yml)  
 
-## How to collect the test coverage
-The current solution is throught Istanbul. For details please refer repo [nextjs-with-playwright-istanbul](https://github.com/cenfun/nextjs-with-playwright-istanbul).
+## How to collect the playwright test coverage
+The current solution is through Istanbul. For details please refer repo [nextjs-with-playwright-istanbul](https://github.com/cenfun/nextjs-with-playwright-istanbul).
 
 **Note**: The author mentioned that "The latest version of Next.js does not work with Babel + Istanbul", but I got it working in this repo with Next 15.1.3.
+
+## How to combine the unit test and playwright integration test coverage
+-  run unit test: ```npm test```, the coverage folder for unit test will be under ./coverage/unit, to view the jest coverage report use command ```npm run lcov:unit```
+-  run the playwright test: follow the solutions above, the report will be under ./coverage/integration
+-  run the merge coverage script: ```npm run coverage:merge```, the combined coverage report will be under ./coverage
+
+The whole process is included the github actions script: [ci.yml](.github/workflows/ci.yml) 
 
 ## Other issues
 In oder to use babel + istanbul coverage, swc has to be disabled, which cause  the **next/font** library is not supported.

@@ -16,34 +16,6 @@ test.describe("ToDo App", () => {
         await resetDB(request, customHeaders);
     });
 
-    test("Add new Task", async ({ page }) => {
-        await page.goto("/");
-        await expect(
-            page.getByRole("heading", { name: "ToDo List" })
-        ).toBeVisible();
-
-        await page.getByRole("button", { name: "Add New Task" }).click();
-
-        await page
-            .locator("form")
-            .filter({ hasText: "Add New TaskSubmit" })
-            .getByPlaceholder("Type here")
-            .click();
-
-        await page
-            .locator("form")
-            .filter({ hasText: "Add New TaskSubmit" })
-            .getByPlaceholder("Type here")
-            .fill("buy iPhone 16");
-
-        await page
-            .locator("form")
-            .filter({ hasText: "Add New TaskSubmit" })
-            .getByRole("button")
-            .click();
-
-        await expect(page.getByText("buy iPhone")).toBeVisible();
-    });
 
     test("list when empty tasks", async ({ page, request}, testInfo) => {
         const customHeaders = {

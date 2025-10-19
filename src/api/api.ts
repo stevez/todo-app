@@ -11,7 +11,7 @@ const getPrallelIndex = async () => {
   return parallelIndex;
 };
 
-const getHeaders: () => Promise<HeadersInit> = async () => {
+export const getHeaders: () => Promise<HeadersInit> = async () => {
   const headers = new Headers();
   headers.set("Content-Type", "application/json");
   
