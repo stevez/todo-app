@@ -4,12 +4,14 @@ import { CoverageReportOptions } from "monocart-reporter";
 const coverageReportOptions: CoverageReportOptions = {
   // logging: 'debug',
   name: "Todo-App Istanbul Coverage Report",
-  outputDir: "./coverage",
+  outputDir: "./coverage/integration",
   reports: [["lcov"], ["json"], ["text"], ["text-summary"]],
 
   all: {
     dir: ["./src"],
     filter: {
+      "**/__tests__/**": false,
+      '**/types/**': false,
       "**/*.tsx": true,
       "**/*.ts": true,
     },
